@@ -1408,7 +1408,6 @@ body {
 .broker-rating .r {
   width: 15px;
   height: 15px;
-  margin-right: 4px;
   background: url(../images/i/icons.png) -100px 0 no-repeat;
   cursor: default !important;
 }
@@ -2883,7 +2882,7 @@ body {
 }
 .project-about .pad {
   padding: 30px 30px 30px 326px;
-  background: #f4f6ed url(https://ecattrade.com/wp-content/themes/cat/images/i/index.gif) 0 bottom no-repeat;
+
 }
 @media screen and (max-width: 767px) {
  .project-about .pad {
@@ -3111,3 +3110,25 @@ div.video > iframe {
   width: 100%;
   height: 100%;
 }
+tr:nth-child(even) {
+   background-color: #fff;
+    
+}
+.btn.blues{
+  background: linear-gradient(to bottom, #3d5eff 0%, #3944c2 100%);
+    color: #fff;
+}
+.scroll-table {
+    background-color: #f4f6ed;
+}
+tr:hover{
+  background-color: #ffe6a7;
+  cursor: initial;
+}
+.title {
+    background-color: rgba(21, 0, 29, 0.6);
+    padding: 10px;
+    color: #fff;
+    font-weight: 500;
+}
+.mt-1{margin-top: 1rem}

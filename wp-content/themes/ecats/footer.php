@@ -48,7 +48,8 @@
 				</div>
 				<a class="back-to-top"><i class="fa fa-angle-up"></i></a>
 			</footer>
-		</div>
+		</div>	
+	</div>
 		<?php wp_footer(); ?>
 		<script src="<?php bloginfo( 'template_directory' ); ?>/libs/jquery-1.9.1.min.js"></script>
 		<script src="<?php bloginfo( 'template_directory' ); ?>/libs/bootstrap4/js/bootstrap.bundle.min.js"></script>

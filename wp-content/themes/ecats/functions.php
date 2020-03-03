@@ -19,8 +19,16 @@ function settup_theme(){
 	}
 	if (function_exists('register_sidebar')){
 		register_sidebar(array(
-			'name'=> 'Cột phải',
-			'id' => 'sidebar',
+			'name'=> 'banner 1',
+			'id' => 'banner',
+			'before_widget' => '<div class="widget">',
+			'after_widget'  => "</div>\n",
+			'before_title'  => '<h3 class="title"><span>',
+			'after_title'   => "</span></h3>\n",
+		));
+		register_sidebar(array(
+			'name'=> 'banner 2',
+			'id' => 'banner_1',
 			'before_widget' => '<div class="widget">',
 			'after_widget'  => "</div>\n",
 			'before_title'  => '<h3 class="title"><span>',
@@ -136,9 +144,17 @@ function forex_post_type(){
         'publicly_queryable' => true, //Hiển thị các tham số trong query, phải đặt true
         'capability_type' => 'post' //
     );
+    $argss = array(
+    	 'public' => true,
+    	'labels' => array(
+        'name' => 'Danh mục',
+        'singular_name' => 'forex_category',),
+    );
     register_post_type('forex', $args);
+    register_taxonomy_for_object_type( 'category', 'forex' );
 }
 add_action('init', 'forex_post_type');
+
 // Hiển thị slider bằng shortcode
 // do_shortcode('[show_slider num="2"]'); -> Đoạn code hiển thị slider ra ngoài!
 function create_shortcode_slider($args){

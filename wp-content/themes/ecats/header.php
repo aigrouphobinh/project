@@ -15,10 +15,10 @@
 			<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
 		<![endif]-->
 		<?php wp_head(); ?>
-		<?php the_field('google_analytics', 'option'); ?>
 	</head>
 	<body>
 		<div class="top-bg">
+			<div class="page-container">
 			<header>
 				<div class="container">
 					<header class="page-header clearfix">
@@ -50,7 +50,8 @@
 						<nav class="main-nav">
 							<?php wp_nav_menu( array( 'theme_location' => 'main_nav', 'container' => 'false', 'menu_id' => 'main-nav', 'menu_class' => 'main-nav') ); ?>
 						</nav>
+						<div class="clearfix"></div>
 					</div>
+
 				</div>
 			</header>
-	
