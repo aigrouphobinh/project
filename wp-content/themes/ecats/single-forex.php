@@ -55,41 +55,38 @@
 					</div>
 					<div class="pad">
 						<?php the_content(); ?>
-					</div>
-				</article>	
-				<div id="navbar" class="broker-fixed" style="display: none;">
-					<div class="page-container">
-
-						<div class="fixed-content clearfix">
-							<a href="https://ecattrade.com/demo/iqoption-vietnam/" rel="nofollow"><img width="125" height="40" src="<?php echo hk_get_thumb(get_the_id(), 125, 40); ?>" class="attachment-post-thumbnail size-post-thumbnail wp-post-image" alt="" /></noscript></a>
-							<a href="<?php the_field('end_page') ?>" class="btn btn-big" rel="nofollow">ĐĂNG KÝ</a>
-						</div>
-					</div>
-				</div>					
-			</div>			
-
-			<aside class="page-aside">
-
-				<div class="broker_reviews hidden-mobile">
-					<img src="https://ecattrade.com/wp-content/themes/cat/images/i/broker.jpg" width="300" height="314" alt="Danh sách nhà môi giới quyền chọn nhị phân Việt Nam" data-lazy-src="https://ecattrade.com/wp-content/themes/cat/images/i/broker.jpg" class="lazyloaded" data-was-processed="true"><noscript><img src="https://ecattrade.com/wp-content/themes/cat/images/i/broker.jpg" width="300" height="314" alt="Danh sách nhà môi giới quyền chọn nhị phân Việt Nam"></noscript>
-					<span class="description">Top Sàn<br> Giao Dịch<br> Forex<br>Việt Nam</span>
-					<a href="https://ecattrade.com/vi/san-giao-dich-quyen-chon-nhi-phan-vietnam" class="broker_reviews_button">
-						<span class="normal">Click here</span>
-						<span class="hover"></span>
-					</a>
+						<?php
+						if ( comments_open() || get_comments_number() ) :
+							comments_template();
+					endif;
+					?> 
 				</div>
-			</div>
-		</aside>
-	</div>
-			<?php endwhile;?>
-		<?php endif; ?>
-		<?php get_footer(); ?>
-		<script>
-			var $fix = $(".broker-fixed");
-		if ($fix.length) {
-			var $info = $(".broker-info");
-			$(window).scroll(function () {
-				$(window).scrollTop() > $info.offset().top + $info.height() ? $fix.show() : $fix.hide()
-			})
-		}
-		</script>
+			</article>	
+			<div id="navbar" class="broker-fixed" style="display: none;">
+				<div class="page-container">
+
+					<div class="fixed-content clearfix">
+						<a href="<?php the_field('end_page') ?>"><img width="125" height="40" src="<?php echo hk_get_thumb(get_the_id(), 125, 40); ?>" class="attachment-post-thumbnail size-post-thumbnail wp-post-image" alt="" /></a>
+						<a href="<?php the_field('end_page') ?>" class="btn btn-big" rel="nofollow">ĐĂNG KÝ</a>
+					</div>
+				</div>
+			</div>					
+		</div>			
+
+		<aside class="page-aside">
+			<?php get_sidebar(); ?>
+		</div>
+	</aside>
+</div>
+<?php endwhile;?>
+<?php endif; ?>
+<?php get_footer(); ?>
+<script>
+	var $fix = $(".broker-fixed");
+	if ($fix.length) {
+		var $info = $(".broker-info");
+		$(window).scroll(function () {
+			$(window).scrollTop() > $info.offset().top + $info.height() ? $fix.show() : $fix.hide()
+		})
+	}
+</script>

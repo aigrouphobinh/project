@@ -90,6 +90,7 @@
 								</td>
 								<td>
 									<div class="broker-rating">
+										<?php echo kk_star_ratings(); ?>
 										<span class="r r1 selected"></span>
 										<span class="r r2 selected"></span>
 										<span class="r r3 selected"></span>
