@@ -126,12 +126,9 @@
 
 	</div>
 	<div class="project-about">
-		<div class="pad" style=" background: #f4f6ed url(<?php the_field('image_intro', 'option'); ?>) 0 bottom no-repeat;">
-			<h1 class="titles">eCatTrade - Giới thiệu website</h1>
-			<p>Xin chào! Chào mừng bạn đến với Ecattrade.com, trang thông tin đáng tin cậy dành cho các nhà giao dịch đến từ Việt Nam về giao dịch Forex, CFD, Tiền Điện Tử và Quyền Chọn Nhị Phân.</p>
-			<p>Tại Ecattrade.com bạn sẽ tìm thấy các thông tin về các chiến lược giao dịch cơ bản, các tín hiệu, chỉ số, đánh giá về các nền tảng quyền chọn nhị phân và nhà môi giới Forex…</p>
-			<p>Chúng tôi lý giải vì sao quyền chọn nhị phân lại rất phổ biến hiện nay, làm thế nào để tham gia thị trường này và những điều bạn có thể kỳ vọng. Chúng tôi tổng hợp một cách chi tiết cách nhà đầu tư giao dịch trên nền tảng (công ty môi giới) như thế nào và làm thế nào có thể chọn được công ty giao dịch tốt, giúp bạn có thể tạo ra lợi nhuận.</p>
-			<p>Một trong những quyết định quan trọng nhất trong sự nghiệp của một nhà đầu tư là chọn được đúng công ty môi giới đáng tin cậy. Chúng tôi đánh giá và tổng hợp ra các công ty tốt nhất, cung cấp thông tin quan tọng về từng công ty để bạn lựa chọn.</p>
+		<div class="pad">
+			<h1 class="titles"><?php the_field('title_intro', 'option'); ?></h1>
+			<?php the_field('content_intro', 'option'); ?>
 		</div>
 		<div class="block-shadow"></div>
 	</div>

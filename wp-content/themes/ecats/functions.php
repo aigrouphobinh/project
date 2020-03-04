@@ -39,6 +39,10 @@ function settup_theme(){
 		array(
 			'main_nav' => 'Menu chính',
 			'top_nav' => 'Top menu',
+			'ft1_nav' => 'Footer 1 menu',
+			'ft2_nav' => 'Footer 2 menu',
+			'ft3_nav' => 'Footer 3 menu',
+			'ft4_nav' => 'Footer 4 menu',
 		)
 	);
 	function teaser($limit) {

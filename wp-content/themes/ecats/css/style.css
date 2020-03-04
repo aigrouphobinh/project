@@ -1441,7 +1441,7 @@ body {
   }
 }
 .page-header .logo {
-  padding: 31px 25px 0;
+  padding: 15px 25px 0;
   float: left;
 }
 @media screen and (max-width: 1023px) {
@@ -1741,10 +1741,9 @@ body {
 }
 @media screen and (max-width: 1023px) {
   .bottom-nav ul {
-    width: 24%;
+    width: 20%;
     display: inline-block;
     vertical-align: top;
-    float: none;
   }
 }
 .bottom-nav ul.long {
@@ -1786,11 +1785,6 @@ body {
 .bottom-nav ul li {
   margin-top: 10px;
   list-style: none;
-}
-@media screen and (max-width: 1023px) {
-  .bottom-nav ul li {
-    display: none;
-  }
 }
 
 .footer-services {
@@ -3132,3 +3126,4 @@ tr:hover{
     font-weight: 500;
 }
 .mt-1{margin-top: 1rem}
+.broker-fixed.sticky{display: block !important;}
