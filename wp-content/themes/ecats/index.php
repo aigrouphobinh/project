@@ -7,7 +7,7 @@
 				<tbody>
 					<tr>
 						<th class="first">
-							Các nhà môi giới Forex
+							Các nhà môi giới
 						</th>
 						<th class="table-rating">
 							Đánh giá
@@ -31,11 +31,7 @@
 								</td>
 								<td>
 									<div class="broker-rating">
-										<span class="r r1 selected"></span>
-										<span class="r r2 selected"></span>
-										<span class="r r3 selected"></span>
-										<span class="r r4 selected"></span>
-										<span class="r r5 selected half"></span>
+										<?php echo  do_shortcode('[score id = '.get_the_id().']') ?>
 									</div>
 								</td>
 								<td>
@@ -66,7 +62,7 @@
 				<tbody>
 					<tr>
 						<th class="first">
-							Các nhà môi giới Forex
+							Các nhà môi giới
 						</th>
 						<th class="table-rating">
 							Đánh giá
@@ -90,12 +86,7 @@
 								</td>
 								<td>
 									<div class="broker-rating">
-										<?php echo kk_star_ratings(); ?>
-										<span class="r r1 selected"></span>
-										<span class="r r2 selected"></span>
-										<span class="r r3 selected"></span>
-										<span class="r r4 selected"></span>
-										<span class="r r5 selected half"></span>
+										<?php echo  do_shortcode('[score id = '.get_the_id().']') ?>
 									</div>
 								</td>
 								<td>

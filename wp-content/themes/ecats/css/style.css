@@ -465,9 +465,6 @@ ul, ol {
   }
 }
 
-ul li {
-  list-style: square;
-}
 
 /*Таблицы*/
 /*Элементы*/
@@ -3133,15 +3130,23 @@ tr:nth-child(even) {
 */
 /*Comment style*/
 span.title_comment {
-    font-size: 20px;
+    font-size: 16px;
     color: #606664;
     line-height: 1.3em;
     font-weight: 700;
-    margin: 0 0 15px;
     display: inline-block;
 }
 .comment-author.vcard {
-    width: 25px;
+    width: 60px;
+}
+ol.commentlist_mw {
+    padding: 0;
+}
+.comment-author.vcard img {
+    width: 100%;
+    max-width: 45px;
+    height: auto;
+    border-radius: 5px;
 }
 #formcmmaxweb {
   overflow: hidden;
@@ -3193,7 +3198,7 @@ margin-top: 10px;
   margin: 0 0 5px;
 }
 .noidungcomment {
-    font-size: 16px;
+    font-size: 14px;
     line-height: 24px;
 }
 .cancel-comment-reply a {
@@ -3231,7 +3236,7 @@ margin-top: 10px;
     color: #333;
     margin: 0;
     text-transform: capitalize;
-    font-size: 17px;
+    font-size: 14px;
     line-height: 22px;
     margin-top: 2px;
 }
@@ -3245,7 +3250,7 @@ ol.commentlist_mw li{
 }
 ol.commentlist_mw > ul.children{
   margin: 10px 0 15px 35px;
-    background: #f1f1f1;
+    background: #f9f9f9;
     padding: 10px;
     position: relative;
 }
@@ -3408,5 +3413,24 @@ div.error {
 
 #formcmmaxweb ::-ms-input-placeholder {  
    color: #999999;  
+}
+.broker-rating .kk-star-ratings.kksr-disabled .kksr-stars .kksr-stars-active .kksr-star .kksr-icon,
+{
+    background-image: inherit !important;
+}
+.broker-rating:before {
+    position: absolute;
+    width: 100%;
+    z-index: 99;
+    background-color: transparent;
+    height: 100%;
+}
+
+.broker-rating {
+    position: relative;
+}
+.advance-list .kk-star-ratings {
+    vertical-align: middle;
+    margin-left: 5px;
 }
 /*#comment style*/

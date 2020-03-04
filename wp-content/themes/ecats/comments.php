@@ -12,31 +12,6 @@ if ( post_password_required() ) { ?>
 }
 ?>
 <div id="comments" class="comments-area">
-	<?php if ( have_comments() ) : ?>
-	<span class="title_comment">
-	    <?php
-			printf( _nx( '1 bình luận', '%1$s bình luận', get_comments_number(), '', 'devvn' ),
-				number_format_i18n( get_comments_number() ));
-		?>
-	</span>
-	<?php endif;?>
-	<?php
-		if ( ! comments_open() && get_comments_number() ) : ?>
-		<p class="nocomments"><?php _e( 'Bình luận bị đóng.' , 'devvn' ); ?></p>
-	<?php endif; ?>
-	<?php if ( have_comments() ) : ?>
-		<ol class="commentlist_mw">
-			<?php wp_list_comments('type=comment&callback=devvn_comment'); ?>
-		</ol><!-- .commentlist -->
-		<?php if ( get_comment_pages_count() > 1 && get_option( 'page_comments' ) ) :?>
-		<nav id="comment-nav-below" class="navigation" role="navigation">
-			<div class="nav-previous"><?php previous_comments_link( __( '&larr; trước', '' ) ); ?></div>
-			<div class="nav-next"><?php next_comments_link( __( 'Tiếp &rarr;', '' ) ); ?></div>
-		</nav>
-		<?php endif;?>
-	<?php endif; // have_comments() ?>
-	
-	<span class="title_comment">Bình luận của bạn</span>
 	<?php if ( comments_open() ) : ?>
 	<div id="formcmmaxweb">
 	
@@ -69,5 +44,28 @@ if ( post_password_required() ) { ?>
 	    </form>	
 	        <?php endif; // If registration required and not logged in ?>	       
 	    </div>
-	<?php endif; // if you delete this the sky will fall on your head ?>
+	<?php endif;// if you delete this the sky will fall on your head ?>
+	<?php if ( have_comments() ) : ?>
+	<span class="title_comment">
+	    <?php
+			printf( _nx( '1 bình luận', '%1$s bình luận', get_comments_number(), '', 'devvn' ),
+				number_format_i18n( get_comments_number() ));
+		?>
+	</span>
+	<?php endif;?>
+	<?php
+		if ( ! comments_open() && get_comments_number() ) : ?>
+		<p class="nocomments"><?php _e( 'Bình luận bị đóng.' , 'devvn' ); ?></p>
+	<?php endif; ?>
+	<?php if ( have_comments() ) : ?>
+		<ol class="commentlist_mw">
+			<?php wp_list_comments('type=comment&callback=devvn_comment'); ?>
+		</ol><!-- .commentlist -->
+		<?php if ( get_comment_pages_count() > 1 && get_option( 'page_comments' ) ) :?>
+		<nav id="comment-nav-below" class="navigation" role="navigation">
+			<div class="nav-previous"><?php previous_comments_link( __( '&larr; trước', '' ) ); ?></div>
+			<div class="nav-next"><?php next_comments_link( __( 'Tiếp &rarr;', '' ) ); ?></div>
+		</nav>
+		<?php endif;?>
+	<?php endif; // have_comments() ?>
 </div><!-- #comments .comments-area -->

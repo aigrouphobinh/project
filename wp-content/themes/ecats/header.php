@@ -13,6 +13,8 @@
 		</style>
 		<link rel="stylesheet" href="<?php bloginfo( 'template_directory' ); ?>/css/style.css">
 		<link rel="stylesheet" href="<?php bloginfo( 'template_directory' ); ?>/css/mainsx.css">
+		<link rel="shortcut icon" type="image/png" href="/favicon.png"/>
+		<link rel="shortcut icon" type="image/png" href="http://example.com/favicon.png"/>
 		<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
 		<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
 		<!--[if lt IE 9]>

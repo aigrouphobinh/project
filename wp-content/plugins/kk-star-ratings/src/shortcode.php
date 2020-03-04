@@ -47,3 +47,30 @@ function shortcode($attrs, $content, $tag)
 
     return response($attrs);
 }
+add_shortcode('score',__NAMESPACE__.'\score');
+function score($id, $content, $tag)
+{   
+    $attrs = array('id' => $id,);
+
+    foreach ($attrs as $key => &$value) {
+        if (is_numeric($key)) {
+            $attrs[$value] = true;
+            unset($attrs[$key]);
+        }
+        if ($value === 'false') {
+            $value = false;
+        }
+        if ($value === 'true') {
+            $value = true;
+        }
+        if ($value === 'null') {
+            $value = null;
+        }
+    }
+
+    $attrs = shortcode_atts(array_fill_keys([
+        $id,'score',
+    ], null), $attrs, $tag);
+
+    return responses($attrs);
+}

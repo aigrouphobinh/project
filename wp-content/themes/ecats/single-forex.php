@@ -33,11 +33,7 @@
 								<ul>
 									<li>Đánh giá
 										<span class="broker-rating">
-											<span class="r r1 selected"></span>
-											<span class="r r2 selected"></span>
-											<span class="r r3 selected"></span>
-											<span class="r r4 selected"></span>
-											<span class="r r5 selected half"></span>
+											<?php echo  do_shortcode('[score id = '.get_the_id().']') ?>
 										</span>												
 									</li>
 									<?php
