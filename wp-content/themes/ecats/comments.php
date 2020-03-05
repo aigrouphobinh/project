@@ -28,18 +28,15 @@ if ( post_password_required() ) { ?>
 	    <?php if ( is_user_logged_in() ) : ?>
 			<p class="nameuser"><?php _e('Bình luận với tên:','devvn')?> <a href="<?php echo get_option('siteurl'); ?>/wp-admin/profile.php"><?php echo $user_identity; ?></a></p>    
 	    <?php endif; ?>
-	     	<p>
-	        	<textarea name="comment" id="comment" cols="50" rows="4" tabindex="4" placeholder="<?php _e('Bình luận','devvn')?>"></textarea>
-	        </p>
+	     <textarea name="comment" id="comment" cols="50" rows="4" tabindex="4" placeholder="<?php _e('Bình luận','devvn')?>"></textarea>
 	    <?php if(!is_user_logged_in()):?>    
 			<div class="name-email">
 		     <input placeholder="<?php _e('Họ và tên','devvn')?>" type="text" name="author" id="author" value="<?php echo esc_attr($comment_author);?>" tabindex="1" <?php if ($req) echo "aria-required='true'"; ?> />
 		      <input placeholder="<?php _e('Email','devvn')?>" type="text" name="email" id="email" value="<?php echo esc_attr($comment_author_email); ?>" size="22" tabindex="2" <?php if ($req) echo "aria-required='true'"; ?> />
 			</div>
 	    <?php endif;?>
-	        <p><input name="submit" type="submit" id="submit" tabindex="5" value="<?php _e('Gửi','devvn')?>" />
+	    <input name="submit" type="submit" id="submit" tabindex="5" value="<?php _e('Gửi','devvn')?>" />
 	        <?php comment_id_fields(); ?>
-	        </p>
 	        <?php do_action('comment_form', $post->ID); ?>	
 	    </form>	
 	        <?php endif; // If registration required and not logged in ?>	       

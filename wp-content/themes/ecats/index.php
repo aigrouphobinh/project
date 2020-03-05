@@ -17,7 +17,8 @@
 						<th>Mở tài khoản</th>
 						<th>Xem</th>
 					</tr>
-					<?php $getposts = new WP_query(); $getposts->query('post_type=forex&showposts=5&cat=48'); ?>
+					<?php $nb= get_field('number_show_home','option'); ?>
+					<?php $getposts = new WP_query(); $getposts->query('post_status=publish&post_type=forex&cat=103&showposts='.$nb.''); ?>
 					<?php global $wp_query; $wp_query->in_the_loop = true; ?>
 					<?php
 					if(have_posts()):
@@ -72,7 +73,7 @@
 						<th>Mở tài khoản</th>
 						<th>Xem</th>
 					</tr>
-					<?php $getposts = new WP_query(); $getposts->query('post_type=forex&showposts=5&cat=46'); ?>
+					<?php $getposts = new WP_query(); $getposts->query('post_type=forex&cat=104&showposts='.$nb.''); ?>
 					<?php global $wp_query; $wp_query->in_the_loop = true; ?>
 					<?php
 					if(have_posts()):
@@ -111,19 +112,37 @@
 					</tbody>
 				</table>
 			</div>
+				<?php $getposts = new WP_query(); $getposts->query('post_type=gt_intro&showposts=1'); ?>
+					<?php global $wp_query; $wp_query->in_the_loop = true; ?>
+					<?php
+					if(have_posts()):
+						while ($getposts->have_posts()) : $getposts->the_post();
+							?>
+							<div class="project-about" style="margin-top: 15px">
+							<div class="pad">
+								<h1 class="titles"><?php the_title(); ?></h1>
+								<?php the_content(); ?>
+							</div>
+							<div class="block-shadow"></div>
+						</div>
+						<style type="text/css">
+							.project-about .pad {
+				    padding: 30px 30px 30px 326px;
+				    min-height: 480px;
+				    background: #f4f6ed url(<?php echo get_the_post_thumbnail_url(get_the_ID(),'full') ?>) 0 bottom no-repeat;}
+						</style>
+							<?php endwhile; wp_reset_postdata(); ?>
+						<?php else:
+							echo "Dữ liệu hiện tại chưa cập nhật"; 
+						endif;
+						?>
 		</div>
 		<div class="page-aside">
 			<?php get_sidebar(); ?>
 		</div>
 
 	</div>
-	<div class="project-about">
-		<div class="pad">
-			<h1 class="titles"><?php the_field('title_intro', 'option'); ?></h1>
-			<?php the_field('content_intro', 'option'); ?>
-		</div>
-		<div class="block-shadow"></div>
-	</div>
+	
 
 
 	<?php get_footer(); ?>

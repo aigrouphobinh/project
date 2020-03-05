@@ -11,5 +11,22 @@
 		<?php dynamic_sidebar('banner_1'); ?>
 	</div><!-- #primary-sidebar -->
 <?php endif; ?>
+
+<?php if( have_rows('top_post','option') ): $i = 0;?>
+	<ul>
+
+		<?php while ( have_rows('top_post','option') ) : the_row();?>
+		<?php $post_objects = get_sub_field('bai_viet','option');
+			if( $post_objects && get_the_id() != $i): ?>
+				<li>
+					<a href="<?php the_permalink() ?>"> <?php the_title() ?></a>
+				</li>
+			<?php endif;?>
+			<?php $i = get_the_id();?>
+		<?php endwhile;?>
+	</ul>
+<?php else : ?>
+
+<?php endif;?>
 	</div>
 </div>

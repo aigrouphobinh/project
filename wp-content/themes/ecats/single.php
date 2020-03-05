@@ -9,16 +9,7 @@
 			<div class="pad">
 				<?php the_content(); ?>
 			</div>
-		</article>	
-		<div id="navbar" class="broker-fixed" style="display: none;">
-			<div class="page-container">
-
-				<div class="fixed-content clearfix">
-					<a href="<?php the_field('end_page') ?>"><img width="125" height="40" src="<?php echo hk_get_thumb(get_the_id(), 125, 40); ?>" class="attachment-post-thumbnail size-post-thumbnail wp-post-image" alt="" /></a>
-					<a href="<?php the_field('end_page') ?>" class="btn btn-big" rel="nofollow">ĐĂNG KÝ</a>
-				</div>
-			</div>
-		</div>					
+		</article>					
 	</div>			
 
 	<aside class="page-aside">

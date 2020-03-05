@@ -120,6 +120,38 @@ class Child_Wrap extends Walker_Nav_Menu{
         $output .= "$indent</ul>\n";
     }
 }
+add_action('init', 'GT_post_type', 0);
+function GT_post_type(){
+    $label = array(
+        'name' => 'Giới thiệu',
+        'singular_name' => 'GT_intro',
+    );
+    $args = array(
+        'labels' => $label,
+        'description' => 'Post type đăng GT',
+        'supports' => array(
+            'title',
+            'thumbnail',
+            'editor',
+        ),
+        'hierarchical' => false, //Cho phép phân cấp, nếu là false thì post type này giống như Post, true thì giống như Page
+        'public' => true, //Kích hoạt post type
+        'show_ui' => true, //Hiển thị khung quản trị như Post/Page
+        'show_in_menu' => true, //Hiển thị trên Admin Menu (tay trái)
+        'show_in_nav_menus' => true, //Hiển thị trong Appearance -> Menus
+        'show_in_admin_bar' => true, //Hiển thị trên thanh Admin bar màu đen.
+        'menu_position' => 5, //Thứ tự vị trí hiển thị trong menu (tay trái)
+        'menu_icon' => 'dashicons-megaphone', //Đường dẫn tới icon sẽ hiển thị
+        'can_export' => true, //Có thể export nội dung bằng Tools -> Export
+        'has_archive' => true, //Cho phép lưu trữ (month, date, year)
+        'exclude_from_search' => false, //Loại bỏ khỏi kết quả tìm kiếm
+        'publicly_queryable' => true, //Hiển thị các tham số trong query, phải đặt true
+        'capability_type' => 'post' //
+    );
+    register_post_type('GT_intro', $args);
+
+}
+add_action('init', 'forex_post_type', 0);
 // Tạo post type slider
 function forex_post_type(){
     $label = array(
@@ -149,16 +181,38 @@ function forex_post_type(){
         'publicly_queryable' => true, //Hiển thị các tham số trong query, phải đặt true
         'capability_type' => 'post' //
     );
-    $argss = array(
-    	 'public' => true,
-    	'labels' => array(
-        'name' => 'Danh mục',
-        'singular_name' => 'forex_category',),
-    );
     register_post_type('forex', $args);
-    register_taxonomy_for_object_type( 'category', 'forex' );
+
 }
-add_action('init', 'forex_post_type');
+
+add_action( 'init', 'crunchify_create_deals_custom_taxonomy', 0 );
+ 
+//create a custom taxonomy name it "type" for your posts
+function crunchify_create_deals_custom_taxonomy() {
+ 
+  $labels = array(
+    'name' => _x( 'Danh mục', 'taxonomy general name' ),
+    'singular_name' => _x( 'Forex Category', 'taxonomy singular name' ),
+    'search_items' =>  __( 'Search category' ),
+    'all_items' => __( 'All category' ),
+    'parent_item' => __( 'Parent category' ),
+    'parent_item_colon' => __( 'Parent category:' ),
+    'edit_item' => __( 'Edit category' ), 
+    'update_item' => __( 'Update Category' ),
+    'add_new_item' => __( 'Add New Category' ),
+    'new_item_name' => __( 'New Category Name' ),
+    'menu_name' => __( 'Danh mục' ),
+  ); 	
+ 
+  register_taxonomy('forex_category',array('forex'), array(
+    'hierarchical' => true,
+    'labels' => $labels,
+    'show_ui' => true,
+    'show_admin_column' => true,
+    'query_var' => true,
+    'rewrite' => array( 'slug' => 'forex' ),
+  ));
+}
 
 // Hiển thị slider bằng shortcode
 // do_shortcode('[show_slider num="2"]'); -> Đoạn code hiển thị slider ra ngoài!
@@ -241,6 +295,18 @@ if( function_exists('acf_add_options_page') ) {
 		'capability'	=> 'edit_posts',
 		'redirect'		=> false
 	));
+	// acf_add_options_sub_page(array(
+	// 	'page_title' 	=> 'Top post',
+	// 	'menu_title'	=> 'Top post',
+	// 	'parent_slug' 	=> 'theme-settings',
+	// ));
+	// acf_add_options_sub_page(array(
+	// 	'page_title' 	=> 'Top Forex',
+	// 	'menu_title'	=> 'Top Forex',
+	// 	'parent_slug' 	=> 'theme-settings',
+	// ));
+
+
 }
 function the_price_tour($id){ 
 	$price_sale = get_field('tour_sale',$id); 
@@ -344,6 +410,41 @@ function comment_validation_init() {
 	}
 }
 add_action('wp_footer', 'comment_validation_init');
+add_filter('term_link', 'devvn_no_category_parents', 1000, 3);
+function devvn_no_category_parents($url, $term, $taxonomy) {
+    if($taxonomy == 'category'){
+        $term_nicename = $term->slug;
+        $url = trailingslashit(get_option( 'home' )) . user_trailingslashit( $term_nicename, 'category' );
+    }
+    return $url;
+}
+// Rewrite url mới
+function devvn_no_category_parents_rewrite_rules($flash = false) {
+    $terms = get_terms( array(
+        'taxonomy' => 'category',
+        'post_type' => 'post',
+        'hide_empty' => false,
+    ));
+    if($terms && !is_wp_error($terms)){
+        foreach ($terms as $term){
+            $term_slug = $term->slug;
+            add_rewrite_rule($term_slug.'/?$', 'index.php?category_name='.$term_slug,'top');
+            add_rewrite_rule($term_slug.'/page/([0-9]{1,})/?$', 'index.php?category_name='.$term_slug.'&paged=$matches[1]','top');
+            add_rewrite_rule($term_slug.'/(?:feed/)?(feed|rdf|rss|rss2|atom)/?$', 'index.php?category_name='.$term_slug.'&feed=$matches[1]','top');
+        }
+    }
+    if ($flash == true)
+        flush_rewrite_rules(false);
+}
+add_action('init', 'devvn_no_category_parents_rewrite_rules');
+ 
+/*Sửa lỗi khi tạo mới category bị 404*/
+function devvn_new_category_edit_success() {
+    devvn_no_category_parents_rewrite_rules(true);
+}
+add_action('created_category','devvn_new_category_edit_success');
+add_action('edited_category','devvn_new_category_edit_success');
+add_action('delete_category','devvn_new_category_edit_success');
 
 // Remove Parent Category from Child Category URL
 add_filter('term_link', 'devvn_no_category_parents', 1000, 3);
