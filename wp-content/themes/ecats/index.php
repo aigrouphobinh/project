@@ -17,16 +17,30 @@
 						<th>Mở tài khoản</th>
 						<th>Xem</th>
 					</tr>
-					<?php $nb= get_field('number_show_home','option'); ?>
-					<?php $getposts = new WP_query(); $getposts->query('post_status=publish&post_type=forex&cat=103&showposts='.$nb.''); ?>
-					<?php global $wp_query; $wp_query->in_the_loop = true; ?>
 					<?php
-					if(have_posts()):
-						while ($getposts->have_posts()) : $getposts->the_post();
-							?>
-							<tr>
+					$args = array(
+					'post_type' => 'forex',
+					'posts_per_page'   => 6,
+					'post_status'   => 'publish',
+					'suppress_filters' => true,
+					'tax_query' => array(
+					    array(
+					        'taxonomy' => 'forex_category', //double check your taxonomy name in you dd 
+					        'field'    => 'id',
+					        'terms'    => 33,
+					    ),
+					   ),
+					);
+					$the_query = new WP_Query( $args );
+
+					// The Loop
+					if ( $the_query->have_posts() ) {
+						while ( $the_query->have_posts() ) {
+							$the_query->the_post();
+					     ?>
+					     <tr>
 								<td class="first">
-									<a href="<?php the_permalink(); ?>">
+									<a href="<?php the_permalink(); ?>">	
 										<img src="<?php echo hk_get_thumb(get_the_id(), 125, 40); ?>" alt="<?php the_title(); ?>">
 									</a>
 								</td>
@@ -49,11 +63,13 @@
 										<a class="btn" href="<?php the_permalink(); ?>">Đánh giá</a>
 									</td>
 								</tr>
-							<?php endwhile; wp_reset_postdata(); ?>
-						<?php else:
-							echo "Dữ liệu hiện tại chưa cập nhật"; 
-						endif;
-						?>
+					     <?php
+						} // end while
+					} // endif
+
+					// Reset Post Data
+					wp_reset_postdata();
+					?>
 					</tbody>
 				</table>
 			</div>
@@ -73,15 +89,30 @@
 						<th>Mở tài khoản</th>
 						<th>Xem</th>
 					</tr>
-					<?php $getposts = new WP_query(); $getposts->query('post_type=forex&cat=104&showposts='.$nb.''); ?>
-					<?php global $wp_query; $wp_query->in_the_loop = true; ?>
 					<?php
-					if(have_posts()):
-						while ($getposts->have_posts()) : $getposts->the_post();
-							?>
-							<tr>
+					$args = array(
+					'post_type' => 'forex',
+					'posts_per_page'   => 6,
+					'post_status'   => 'publish',
+					'suppress_filters' => true,
+					'tax_query' => array(
+					    array(
+					        'taxonomy' => 'forex_category', //double check your taxonomy name in you dd 
+					        'field'    => 'id',
+					        'terms'    => 49,
+					    ),
+					   ),
+					);
+					$the_query = new WP_Query( $args );
+
+					// The Loop
+					if ( $the_query->have_posts() ) {
+						while ( $the_query->have_posts() ) {
+							$the_query->the_post();
+					     ?>
+					     <tr>
 								<td class="first">
-									<a href="<?php the_permalink(); ?>">
+									<a href="<?php the_permalink(); ?>">	
 										<img src="<?php echo hk_get_thumb(get_the_id(), 125, 40); ?>" alt="<?php the_title(); ?>">
 									</a>
 								</td>
@@ -104,11 +135,13 @@
 										<a class="btn" href="<?php the_permalink(); ?>">Đánh giá</a>
 									</td>
 								</tr>
-							<?php endwhile; wp_reset_postdata(); ?>
-						<?php else:
-							echo "Dữ liệu hiện tại chưa cập nhật"; 
-						endif;
-						?>
+					     <?php
+						} // end while
+					} // endif
+
+					// Reset Post Data
+					wp_reset_postdata();
+					?>
 					</tbody>
 				</table>
 			</div>

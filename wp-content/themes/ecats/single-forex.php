@@ -3,8 +3,6 @@
 	<?php while (have_posts()) : the_post(); ?>
 		<?php setpostview(get_the_id()); ?>
 		<div class="page clearfix">	
-
-			
 			<div class="page-content">
 				<article class="page-block">
 					<div class="broker-info">
