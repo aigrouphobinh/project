@@ -3341,6 +3341,18 @@ div.error {
 #formcmmaxweb input[type="reset"] {
   cursor: pointer;
 }
+.name-email input {
+    margin-right: 5px !important;
+    margin-top: 0 !important;
+}
+
+.name-email {
+    display: flex;
+}
+
+#formcmmaxweb textarea {
+    height: 40px;
+}
 .reply a.comment-reply-link {
     color: #337ab7;
     text-decoration: none;
@@ -3357,6 +3369,7 @@ div.error {
   background: transparent;
   outline: none;
   font-size: 14px;
+  margin: 10px 0;
 }
 #formcmmaxweb input,
 #formcmmaxweb textarea{
@@ -3432,5 +3445,46 @@ div.error {
 .advance-list .kk-star-ratings {
     vertical-align: middle;
     margin-left: 5px;
+}
+.quatrang {
+    text-align: center;
+}
+ul li {
+    list-style: none;
+}
+.quatrang * {
+    padding: 5px;
+}
+.id_ct_post li .link-item {
+    display: flex;
+}
+
+.id_ct_post li .link-item img {
+    width: 100%;
+    max-width: 150px;
+}
+
+.id_ct_post li .link-item .txt-box {
+    padding: 15px 20px;
+    color: #333;
+}
+
+.txt-box * {
+    margin: 0;
+}
+
+.id_ct_post li .link-item .txt-box p {
+    margin-top: 10px;
+}
+
+.id_ct_post li {
+    background-color: white;
+    margin-right: 40px;
+    margin-bottom: 10px;
+}
+
+.id_ct_post li .link-item .txt-box h3 {
+    font-weight: 900;
+    text-transform: capitalize;
 }
 /*#comment style*/

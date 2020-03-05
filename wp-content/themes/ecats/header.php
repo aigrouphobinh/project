@@ -6,11 +6,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,500,500i,700&amp;subset=vietnamese" rel="stylesheet">
 		<!-- <link rel="stylesheet" href="<?php bloginfo( 'template_directory' ); ?>/css/main.css"> -->
-		<style type="text/css">
-			.project-about .pad {
-    padding: 30px 30px 30px 326px;
-    background: #f4f6ed url(<?php the_field('image_intro', 'option'); ?>) 0 bottom no-repeat;}
-		</style>
+		
 		<link rel="stylesheet" href="<?php bloginfo( 'template_directory' ); ?>/css/style.css">
 		<link rel="stylesheet" href="<?php bloginfo( 'template_directory' ); ?>/css/mainsx.css">
 		<link rel="shortcut icon" type="image/png" href="/favicon.png"/>
