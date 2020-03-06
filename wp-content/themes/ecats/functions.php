@@ -183,7 +183,12 @@ function forex_post_type(){
     );
     register_taxonomy('forex_category',array('forex'), array(
     'hierarchical' => true,
-    'labels' => $labels,
+    'show_admin_column' => true,
+    'rewrite'      => array( 'slug' => 'forex_category'),
+    'labels' => array(
+        'name' => 'Danh mục',
+        'singular_name' => 'forex_category',
+    ),
 
   ));
     register_post_type('forex', $args);
@@ -191,41 +196,6 @@ function forex_post_type(){
 
 }
 
-
-// Hiển thị slider bằng shortcode
-// do_shortcode('[show_slider num="2"]'); -> Đoạn code hiển thị slider ra ngoài!
-function create_shortcode_slider($args){
-	if(isset($args['num'])){ ?>
-		<style>
-			div#carousel-id {margin-bottom: 20px;}
-			div#carousel-id img{width: 100%}
-			.carousel-control {background: none!important;}
-		</style>
-		<div id="carousel-id" class="carousel slide" data-ride="carousel">
-			<div class="carousel-inner">
-				<?php
-					$i = 1;
-					$getposts = new WP_query(); $getposts->query('post_status=publish&showposts='.$args['num'].'&post_type=slider'); 
-					global $wp_query; $wp_query->in_the_loop = true;
-					while ($getposts->have_posts()) : $getposts->the_post();
-					if($i == 1){ ?>
-						<div class="item active">
-							<?php echo get_the_post_thumbnail(get_the_id(), 'full', array( 'class' =>'thumnail') ); ?>
-						</div>
-					<?php } else { ?>
-						<div class="item">
-							<?php echo get_the_post_thumbnail(get_the_id(), 'full', array( 'class' =>'thumnail') ); ?>
-						</div>
-					<?php } $i++;
-					endwhile; wp_reset_postdata();
-				?>
-			</div>
-			<a class="left carousel-control" href="#carousel-id" data-slide="prev"><span class="glyphicon glyphicon-chevron-left"></span></a>
-			<a class="right carousel-control" href="#carousel-id" data-slide="next"><span class="glyphicon glyphicon-chevron-right"></span></a>
-		</div>
-	<?php }
-}
-add_shortcode('show_slider', 'create_shortcode_slider');
 // Loại bỏ 1 bài viết ra khỏi hệ thống tìm kiếm
 add_action('pre_get_posts','one_exclude_posts_from_search');
 function one_exclude_posts_from_search( $query ){
@@ -298,29 +268,6 @@ function the_price_tour($id){
 		<span class="price-sale"><?php echo number_format($price_regular,0,",","."); ?> VNĐ</span>
 	<?php } 
 }
-function hangsao($id){
-	$hangsao = get_the_terms(get_the_id(), 'hang-sao'); 
-	$sao = 5; 
-	if($hangsao) {
-		if($hangsao['0']->term_id == 39){
-			$sao = 1;
-		} else if($hangsao['0']->term_id == 40){
-			$sao = 2;
-		} else if($hangsao['0']->term_id == 41){
-			$sao = 3;
-		} else if($hangsao['0']->term_id == 42){
-			$sao = 4;
-		} else{
-			$sao = 5;
-		}
-	} ?>
-	<div class="start">
-		<?php for ($i=0; $i < $sao ; $i++) { ?>
-			<i class="fa fa-star" aria-hidden="true"></i>
-		<?php } ?>
-	</div>	
-
-<?php }
 function devvn_comment($comment, $args, $depth)    {
     $GLOBALS['comment'] = $comment; ?>
     <li <?php comment_class();?> id="li-comment-<?=get_comment_ID();?>">    

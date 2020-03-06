@@ -9,8 +9,7 @@
 		
 		<link rel="stylesheet" href="<?php bloginfo( 'template_directory' ); ?>/css/style.css">
 		<link rel="stylesheet" href="<?php bloginfo( 'template_directory' ); ?>/css/mainsx.css">
-		<link rel="shortcut icon" type="image/png" href="/favicon.png"/>
-		<link rel="shortcut icon" type="image/png" href="http://example.com/favicon.png"/>
+		<link rel="shortcut icon" type="image/png" href="<?php bloginfo( 'template_directory' ); ?>/images/favicon.png"/>
 		<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
 		<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
 		<!--[if lt IE 9]>
@@ -23,7 +22,7 @@
 		<div class="top-bg">
 			<div class="page-container">
 			<header>
-				<div class="container">
+				<div class="container relative">
 					<header class="page-header clearfix">
 						<div class="logo">
 							<a href="<?php bloginfo( 'url' ); ?>"><img src="<?php the_field('ag_logo', 'option'); ?>" alt="Logo"></a>
@@ -48,10 +47,12 @@
 								</div>
 							</div>
 						</div>
+						<a href="#" class="main-nav-action"></a>
 					</header>
 					<div class="main-nav-container">
-						<nav class="main-nav">
+						<nav class="main-nav flex-menu">
 							<?php wp_nav_menu( array( 'theme_location' => 'main_nav', 'container' => 'false', 'menu_id' => 'main-nav', 'menu_class' => 'main-nav') ); ?>
+							<?php wp_nav_menu( array( 'theme_location' => 'top_nav', 'container' => 'false', 'menu_id' => 'main-nav', 'menu_class' => 'main-nav') ); ?>
 						</nav>
 						<div class="clearfix"></div>
 					</div>

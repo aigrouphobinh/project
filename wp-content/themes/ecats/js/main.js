@@ -78,4 +78,9 @@ jQuery(document).ready(function($) {
 	    }, duration);
 	    return false;
 	});
+	$(function () {
+		$(".main-nav-action").click(function () {
+			$(".main-nav-container").slideToggle(500)
+		})
+	});
 });
