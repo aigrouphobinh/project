@@ -14,7 +14,7 @@
 								<table class="broker-stats">
 									<tbody>
 										<tr>
-											<td class="first">Tiền gửi tối thiểu<strong><?php the_field('money_minimum') ?>$</strong></td>
+											<td class="first">Tiền gửi tối thiểu<strong><?php echo number_format(get_field('money_minimum'),0,",","."); ?>$</strong></td>
 											<td>Tài khoản demo<strong><?php if(get_field('tk_demo')):echo "Có, miễn phí";
 											else: echo "Không" ;endif;?></strong>
 										</td>
