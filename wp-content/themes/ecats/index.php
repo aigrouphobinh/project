@@ -7,15 +7,15 @@
 				<tbody>
 					<tr>
 						<th class="first">
-							Các nhà môi giới
+							<?php pll_e('Broker');?>
 						</th>
 						<th class="table-rating">
-							Đánh giá
+							<?php pll_e('Rating');?>
 						</th>
-						<th>Tiền gửi tối thiểu</th>
-						<th>Tài khoản demo</th>
-						<th>Mở tài khoản</th>
-						<th>Xem</th>
+						<th><?php pll_e('Min. Deposit');?></th>
+						<th><?php pll_e('Free Demo');?></th>
+						<th><?php pll_e('Open Account');?></th>
+						<th><?php pll_e('Review');?></th>
 					</tr>
 				<?php $nb= get_field('number_show_home','option'); ?>
 				<?php $lg = pll_current_language()?>
@@ -128,12 +128,12 @@
 				<tbody>
 					<tr>
 						<th class="first">
-							Các nhà môi giới
+							<?php pll_e('Broker');?>
 						</th>
 						<th class="table-rating">
-							Đánh giá
+							<?php pll_e('Rating');?>
 						</th>
-						<th>Tiền gửi tối thiểu</th>
+						<th><?php pll_e('Min. Deposit');?></th>
 						<th>Tài khoản demo</th>
 						<th>Mở tài khoản</th>
 						<th>Xem</th>

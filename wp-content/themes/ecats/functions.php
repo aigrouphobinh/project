@@ -372,3 +372,12 @@ function devvn_new_category_edit_success() {
 add_action('created_category','devvn_new_category_edit_success');
 add_action('edited_category','devvn_new_category_edit_success');
 add_action('delete_category','devvn_new_category_edit_success');
+
+add_action('init', function() {
+  pll_register_string('mytheme-broker', 'Broker');
+  pll_register_string('mytheme-rating', 'Rating');
+  pll_register_string('mytheme-deposit', 'Min. Deposit');
+  pll_register_string('mytheme-demo', 'Free Demo');
+  pll_register_string('mytheme-opaccount', 'Open Account');
+  pll_register_string('mytheme-review', 'Review');
+});
