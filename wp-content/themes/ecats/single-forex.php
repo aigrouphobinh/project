@@ -14,9 +14,9 @@
 								<table class="broker-stats">
 									<tbody>
 										<tr>
-											<td class="first">Tiền gửi tối thiểu<strong><?php echo number_format(get_field('money_minimum'),0,",","."); ?>$</strong></td>
-											<td>Tài khoản demo<strong><?php if(get_field('tk_demo')):echo "Có, miễn phí";
-											else: echo "Không" ;endif;?></strong>
+											<td class="first"><?php pll_e('Min. Deposit');?><strong><?php echo number_format(get_field('money_minimum'),0,",","."); ?>$</strong></td>
+											<td><?= pll_e('Demo Account') ?> <strong><?php if(get_field('tk_demo')):echo pll_e('Yes, FREE!');
+											else: echo pll_e('Yes') ;endif;?></strong>
 										</td>
 									</tr>
 								</tbody>
@@ -29,7 +29,7 @@
 
 							<div class="advance-list">
 								<ul>
-									<li>Đánh giá
+									<li><?php pll_e('Rating');?>
 										<span class="broker-rating">
 											<?php echo  do_shortcode('[score id = '.get_the_id().']') ?>
 										</span>												
@@ -42,7 +42,7 @@
 										endwhile;else :	endif;
 										?>
 									</ul>
-									<a href="<?php the_field('end_page') ?>" class="btn btn-big" rel="nofollow">ĐĂNG KÝ</a>
+									<a href="<?php the_field('end_page') ?>" class="btn btn-big" rel="nofollow"><?= pll_e('Visit site') ?></a>
 								</div>
 							</div>
 						</div>

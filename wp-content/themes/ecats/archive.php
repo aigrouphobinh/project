@@ -6,16 +6,16 @@
 			<table>
 				<tbody>
 					<tr>
-						<th class="first">
-							Các nhà môi giới
+					<th class="first">
+							<?php pll_e('Broker');?>
 						</th>
 						<th class="table-rating">
-							Đánh giá
+							<?php pll_e('Rating');?>
 						</th>
-						<th>Tiền gửi tối thiểu</th>
-						<th>Tài khoản demo</th>
-						<th>Mở tài khoản</th>
-						<th>Xem</th>
+						<th><?php pll_e('Min. Deposit');?></th>
+						<th><?php pll_e('Free Demo');?></th>
+						<th><?php pll_e('Open Account');?></th>
+						<th><?php pll_e('Review');?></th>
 					</tr>
 						<?php if (have_posts()) : ?>
 					<?php while (have_posts()) : the_post(); ?>
@@ -34,15 +34,15 @@
 									<?php the_field('money_minimum') ?>$
 								</td>
 								<td>
-									<?php if(get_field('tk_demo')):echo "Có, miễn phí";
-										else: echo "Không" ;endif;?>
-									</td>
-									<td>
-										<a class="btn blues" target="_blank" href="<?php the_field('end_page') ?>">Đăng ký Free</a>
-									</td>
-									<td class="last">
-										<a class="btn" href="<?php the_permalink(); ?>">Đánh giá</a>
-									</td>
+								<?php if(get_field('tk_demo')):echo pll_e('Yes, FREE!');
+									else: echo pll_e('Yes') ;endif;?>
+								</td>
+								<td>
+									<a class="btn blues" target="_blank" href="<?php the_field('end_page') ?>"><?php pll_e('Sign Up FREE!');?></a>
+								</td>
+								<td class="last">
+									<a class="btn" href="<?php the_permalink(); ?>"><?php pll_e('Review');?></a>
+								</td>
 								</tr>
 							<?php endwhile; wp_reset_postdata(); endif ?>
 						<?php 

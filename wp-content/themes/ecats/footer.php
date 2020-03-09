@@ -5,16 +5,17 @@
 					<div class="page-container">
 						<div class="footer-container hidden-mobile">
 						<nav class="bottom-nav">
-							<?php wp_nav_menu( array( 'theme_location' => 'ft1_nav','menu_class' => 'first') ); ?>
-							<?php wp_nav_menu( array( 'theme_location' => 'ft2_nav','menu_class' => 'long') ); ?>
-							<?php wp_nav_menu( array( 'theme_location' => 'ft3_nav','menu_class' => 'caption') ); ?>
-							<?php wp_nav_menu( array( 'theme_location' => 'ft4_nav','menu_class' => 'last') ); ?>
+							<?php dynamic_sidebar('footer'); ?>
+							<?php dynamic_sidebar('footer1'); ?>
+							<?php dynamic_sidebar('footer2'); ?>
+							<?php dynamic_sidebar('footer3'); ?>
 						</nav>
 					</div>
 					<div class="footer-container hidden-pc">
 						<nav class="clearfix">
-							<?php wp_nav_menu( array( 'theme_location' => 'ft3_nav','menu_class' => 'caption') ); ?>
-							<?php wp_nav_menu( array( 'theme_location' => 'ft4_nav','menu_class' => 'last') ); ?>
+							<?php dynamic_sidebar('footer2'); ?>
+							<br>
+							<?php dynamic_sidebar('footer3'); ?>
 						</nav>
 						<div class="footer-services clearfix">
 							<div class="socials">
@@ -24,9 +25,6 @@
 						</div>
 					</div>
 					</div>
-				</div>
-				<div class="copyright">
-					<p><?php the_field('copyr', 'option'); ?></p>
 				</div>
 				<a class="back-to-top"><i class="fa fa-angle-up"></i></a>
 			</footer>

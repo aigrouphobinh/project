@@ -18,7 +18,7 @@
 			?>
 
 		<ul class="sidebar-post">
-		<li><h3 style="margin: 8px 0;">Bài viết nên xem</h3></li>
+		<li><h3 style="margin: 8px 0;"><?= pll_e('Port View') ?></h3></li>
 			<?php
 			 while ( have_rows('ports_'.$lg.'','option')) : the_row(); // loop through the repeater fields ?>
 		<?php // set up post object
@@ -35,9 +35,9 @@
 						<img src="<?php bloginfo('template_directory'); ?>/images/no-image.png" alt="<?php the_title(); ?>" />
 					<?php } ?>
 				</div>
-				<div class="txt-box">
+				<div class="txt-box" style="color: #333">
 					<h3><?php the_title(); ?></h3>
-					<p><?= wp_trim_words(get_the_content(),20); ?></p>
+					<small><?php echo get_the_date('d/m/Y'); ?></small>
 				</div>
 			</a>
 		</li>

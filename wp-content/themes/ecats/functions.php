@@ -34,15 +34,54 @@ function settup_theme(){
 			'before_title'  => '<h3 class="title"><span>',
 			'after_title'   => "</span></h3>\n",
 		));
+		register_sidebar(array(
+			'name'=> 'Footer',
+			'id' => 'footer_1',
+			'before_widget' => '<div class="widget">',
+			'after_widget'  => "</div>\n",
+			'before_title'  => '<h3 class="title"><span>',
+			'after_title'   => "</span></h3>\n",
+		));
+		register_sidebar(array(
+			'name'=> 'Footer1',
+			'id' => 'footer_2',
+			'before_widget' => '<div class="widget">',
+			'after_widget'  => "</div>\n",
+			'before_title'  => '<h3 class="title"><span>',
+			'after_title'   => "</span></h3>\n",
+		));
+			register_sidebar(array(
+			'name'=> 'Footer2',
+			'id' => 'footer_3',
+			'before_widget' => '<div class="widget">',
+			'after_widget'  => "</div>\n",
+			'before_title'  => '<h3 class="title"><span>',
+			'after_title'   => "</span></h3>\n",
+		));
+			register_sidebar(array(
+			'name'=> 'Footer3',
+			'id' => 'footer_4',
+			'before_widget' => '<div class="widget">',
+			'after_widget'  => "</div>\n",
+			'before_title'  => '<h3 class="title"><span>',
+			'after_title'   => "</span></h3>\n",
+		));
+				register_sidebar(array(
+			'name'=> 'Tops',
+			'id' => 'menu_top',
+			'before_widget' => '<div class="widget">',
+			'after_widget'  => "</div>\n",
+			'before_title'  => '<h3 class="title"><span>',
+			'after_title'   => "</span></h3>\n",
+		));
+
+
 	}
 	register_nav_menus(
 		array(
 			'main_nav' => 'Menu chính',
 			'top_nav' => 'Top menu',
-			'ft1_nav' => 'Footer 1 menu',
-			'ft2_nav' => 'Footer 2 menu',
-			'ft3_nav' => 'Footer 3 menu',
-			'ft4_nav' => 'Footer 4 menu',
+			'post_nav' => 'Post menu',
 		)
 	);
 	function teaser($limit) {
@@ -156,10 +195,11 @@ add_action('init', 'forex_post_type', 0);
 function forex_post_type(){
     $label = array(
         'name' => 'Forex',
-        'singular_name' => 'Forex',
+        'singular_name' => 'View',
     );
     $args = array(
         'labels' => $label,
+        'rewrite'      => array( 'slug' => 'View'),
         'description' => 'Post type đăng forex',
         'supports' => array(
             'title',
@@ -184,10 +224,10 @@ function forex_post_type(){
     register_taxonomy('forex_category',array('forex'), array(
     'hierarchical' => true,
     'show_admin_column' => true,
-    'rewrite'      => array( 'slug' => 'forex_category'),
+    'rewrite'      => array( 'slug' => 'Category'),
     'labels' => array(
         'name' => 'Danh mục',
-        'singular_name' => 'forex_category',
+        'singular_name' => 'Category',
     ),
 
   ));
@@ -380,4 +420,12 @@ add_action('init', function() {
   pll_register_string('mytheme-demo', 'Free Demo');
   pll_register_string('mytheme-opaccount', 'Open Account');
   pll_register_string('mytheme-review', 'Review');
+  pll_register_string('mytheme-SUFree', 'Sign Up FREE!');
+  pll_register_string('mytheme-Yes', 'Yes');
+  pll_register_string('mytheme-Free', 'Yes, FREE!');
+  pll_register_string('mytheme-acfree', 'Demo Account');
+  pll_register_string('mytheme-visit', 'Visit site');
+  pll_register_string('mytheme-pview', 'Port View');
+  pll_register_string('mytheme-top1', 'TOP FOREX BROKERS 2020');
+  pll_register_string('mytheme-top2', 'TOP BINARY BROKERS 2020');
 });

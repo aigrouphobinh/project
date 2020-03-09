@@ -724,6 +724,8 @@ body {
   height: 236px;
 }
 @media screen and (max-width: 767px) {
+  .hiden-mb{display: none!important;}
+  .show-mb{display: block!important;}
   .broker-info .broker-advances .gallery {
     float: none;
     margin-right: 0;
@@ -1719,7 +1721,7 @@ body {
 }
 .page-footer .footer-bg .footer-container {
   padding-top: 120px;
-  padding-bottom: 35px;
+  padding-bottom: 180px;
   margin: 0 auto;
   color: #FFF;
   max-width: 980px;
@@ -3011,12 +3013,23 @@ body {
   .hidden-mobile {
     display: none;
   }
+  .project-about .pad {
+    padding: 15px !important;
+    background-image: none !important;
+    min-height: auto !important;
+}
+
 }
 
 @media screen and (min-width: 768px) {
   .hidden-pc {
     display: none;
   }
+  #primary-sidebar {
+    display: inline-table;
+    width: calc(50% - 3px);
+}
+
 
 
 }
@@ -3533,4 +3546,55 @@ ul li {
     display: flex;
     justify-content: space-between;
 }
+}
+.itme-li-mb {
+    display: flex;
+    background-color: #fff;
+    padding: 5px 0;
+}
+
+.itme-li-mb div[class='forex-'] {padding: 10px;}
+
+.forex-left,.forex-bt,.forex-right {
+    padding: 0 5px;
+    margin: 0;
+}
+
+.forex-right {
+    width: 55%;
+}
+
+.itme-li-mb:nth-child(even) {
+    background-color: #f4f6ed;
+}
+
+.forex-bt a {
+    margin: 2px 0;
+    font-size: 0.9rem;
+    width: calc(100% - 24px);
+    text-align: center;
+}
+.back-to-top {
+    position: fixed;
+    right: 10px;
+    background-color: #c18000;
+    bottom: 10px;
+    padding: 10px;
+    width: 15px;
+    height: 15px;
+    text-align: center;
+    border-radius: 5px;
+    z-index: 999999999
+}
+
+.back-to-top i {
+    font-size: xx-large;
+    position: relative;
+}
+
+.fa-angle-up:before {
+    position: absolute;
+    top: -9px;
+    right: -11px;
+    color: #fff;
 }

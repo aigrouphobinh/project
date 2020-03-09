@@ -32,18 +32,7 @@
 							<a href="javascript:void(0)" class="control-right invisible"><span></span></a>
 							<div class="slider-overflow borders">
 								<div class="slider-container">
-									<a href="https://ecattrade.com/vi/forex" class="slider-item clearfix">
-										<span class="icon slider-icon-demo"></span>
-										<span class="txt">Top Sàn Giao Dịch Forex</span>
-									</a>
-									<a href="https://ecattrade.com/vi/san-giao-dich-quyen-chon-nhi-phan-vietnam" class="slider-item clearfix">
-										<span class="icon slider-icon-reviews"></span>
-										<span class="txt">Quyền Chọn Nhị Phân</span>
-									</a>
-									<a href="https://ecattrade.com/vi/nen-dau-tu-tien-vao-dau-de-sinh-loi" class="slider-item clearfix">
-										<span class="icon slider-icon-strategy"></span>
-										<span class="txt">Dầu tư vào đâu để sinh lời? </span>
-									</a>
+									<?php dynamic_sidebar('menu_top'); ?>
 								</div>
 							</div>
 						</div>
