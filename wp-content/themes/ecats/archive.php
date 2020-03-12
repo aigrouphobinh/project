@@ -27,7 +27,27 @@
 								</td>
 								<td>
 									<div class="broker-rating">
-										<?php echo  do_shortcode('[score id = '.get_the_id().']') ?>
+										<div style="display: none;" class="kk-star-ratings kksr-disabled">
+								<div class="kksr-stars ">
+									<div class="kksr-stars-inactive">
+										<?php for($i = 1; $i < 6; $i++){?>
+											<div class="kksr-star">
+												<div class="kksr-icon" style="width: 13.5px; height: 13.5px;"></div>
+											</div>
+										<?php } ?>
+									</div>
+									<?php $star = get_field('star');?>
+									<div class="kksr-stars-active" style="width: <?= $star * 20 ?>%;">
+										
+										<?php for($i = 1; $i < 6; $i++){?>
+											<div class="kksr-star">
+												<div class="kksr-icon" style="width: 13.5px; height: 13.5px;"></div>
+											</div>
+										<?php } ?>
+									</div>
+
+								</div>
+							</div>
 									</div>
 								</td>
 								<td>

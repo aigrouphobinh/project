@@ -15,13 +15,34 @@
 										<a href="<?php the_permalink(); ?>">	
 											<img src="<?php echo hk_get_thumb(get_the_id(), 125, 40); ?>" alt="<?php the_title(); ?>">
 											<div class="broker-rating" style="text-align: center;">
-											<?php echo  do_shortcode('[score id = '.get_the_id().']') ?>
+											<div style="display: none;" class="kk-star-ratings kksr-disabled">
+								<div class="kksr-stars ">
+									<div class="kksr-stars-inactive">
+										<?php for($i = 1; $i < 6; $i++){?>
+											<div class="kksr-star">
+												<div class="kksr-icon" style="width: 13.5px; height: 13.5px;"></div>
+											</div>
+										<?php } ?>
+									</div>
+									<?php $star = get_field('star');?>
+									<div class="kksr-stars-active" style="width: <?= $star * 20 ?>%;">
+										
+										<?php for($i = 1; $i < 6; $i++){?>
+											<div class="kksr-star">
+												<div class="kksr-icon" style="width: 13.5px; height: 13.5px;"></div>
+											</div>
+										<?php } ?>
+									</div>
+
+								</div>
+							</div>
 											</div>
 											</a>
 									</div>
 									<div class="forex-right">
-											<small><?php pll_e('Min. Deposit');?> / <?php pll_e('Free Demo');?></small><br>
-											<strong><?php echo number_format(get_field('money_minimum'),0,",","."); ?>$ / <?php if(get_field('tk_demo')):echo pll_e('Yes, FREE!');
+											<small><?php pll_e('Min. Deposit');?></small><br>
+											<strong><?php echo number_format(get_field('money_minimum'),0,",","."); ?>$</strong><br>
+											<small><?php pll_e('Free Demo');?></small><br><strong><?php if(get_field('tk_demo')):echo pll_e('Yes, FREE!');
 										else: echo pll_e('Yes') ;endif;?></strong>
 										<br>
 									</div>
@@ -57,7 +78,27 @@
 								</td>
 								<td>
 									<div class="broker-rating">
-										<?php echo  do_shortcode('[score id = '.get_the_id().']') ?>
+										<div style="display: none;" class="kk-star-ratings kksr-disabled">
+								<div class="kksr-stars ">
+									<div class="kksr-stars-inactive">
+										<?php for($i = 1; $i < 6; $i++){?>
+											<div class="kksr-star">
+												<div class="kksr-icon" style="width: 13.5px; height: 13.5px;"></div>
+											</div>
+										<?php } ?>
+									</div>
+									<?php $star = get_field('star');?>
+									<div class="kksr-stars-active" style="width: <?= $star * 20 ?>%;">
+										
+										<?php for($i = 1; $i < 6; $i++){?>
+											<div class="kksr-star">
+												<div class="kksr-icon" style="width: 13.5px; height: 13.5px;"></div>
+											</div>
+										<?php } ?>
+									</div>
+
+								</div>
+							</div>
 									</div>
 								</td>
 								<td>

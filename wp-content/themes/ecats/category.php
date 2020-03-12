@@ -1,4 +1,4 @@
-<?php get_header('post'); ?>
+<?php get_header(); ?>
 	<div class="page clearfix">	
 	<div class="page-content">
 		<h1><?php the_archive_title(); ?></h1>

@@ -27,8 +27,9 @@
 											</a>
 									</div>
 									<div class="forex-right">
-											<small><?php pll_e('Min. Deposit');?> / <?php pll_e('Free Demo');?></small><br>
-											<strong><?php echo number_format(get_field('money_minimum'),0,",","."); ?>$ / <?php if(get_field('tk_demo')):echo pll_e('Yes, FREE!');
+											<small><?php pll_e('Min. Deposit');?></small><br>
+											<strong><?php echo number_format(get_field('money_minimum'),0,",","."); ?>$</strong><br>
+											<small><?php pll_e('Free Demo');?></small><br><strong><?php if(get_field('tk_demo')):echo pll_e('Yes, FREE!');
 										else: echo pll_e('Yes') ;endif;?></strong>
 										<br>
 									</div>
@@ -73,8 +74,9 @@
 											</a>
 									</div>
 									<div class="forex-right">
-											<small><?php pll_e('Min. Deposit');?> / <?php pll_e('Free Demo');?></small><br>
-											<strong><?php echo number_format(get_field('money_minimum'),0,",","."); ?>$ / <?php if(get_field('tk_demo')):echo pll_e('Yes, FREE!');
+										<small><?php pll_e('Min. Deposit');?></small><br>
+											<strong><?php echo number_format(get_field('money_minimum'),0,",","."); ?>$</strong><br>
+											<small><?php pll_e('Free Demo');?></small><br><strong><?php if(get_field('tk_demo')):echo pll_e('Yes, FREE!');
 										else: echo pll_e('Yes') ;endif;?></strong>
 										<br>
 									</div>

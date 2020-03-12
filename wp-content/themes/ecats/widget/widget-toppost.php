@@ -16,7 +16,7 @@ class Posttop_Category_widget extends WP_Widget {
 			  while ( have_rows('menu_icon','widget_' .$widget_id) ) : the_row();
 			    ?>
 			    <a href="<?php the_sub_field('url_menu_icon','widget_' .$widget_id) ?>" class="slider-item clearfix">
-						<span class="icon slider-icon-reviews" style="background-image: url(<?php the_sub_field('icons_menu','widget_' .$widget_id) ?>)"></span>
+						<span class="icon-img"><img src="<?php the_sub_field('icons_menu','widget_' .$widget_id) ?>"/></span>
 						<span class="txt"><?php the_sub_field('title_icon','widget_' .$widget_id) ?></span>
 					</a>
 			    <a href=""><?php the_sub_field('title_menu','widget_' .$widget_id) ?></a>

@@ -453,6 +453,11 @@ h2 {
   h2 {
     margin: 24px 0;
   }
+
+
+.itme-li-mb {
+    padding: 10px;
+}
 }
 
 /*Списки*/
@@ -983,7 +988,7 @@ body {
 .page-aside .broker_reviews .description {
   position: absolute;
   top: 52px;
-  left: 132px;
+  left: 150px;
   font-weight: bold;
   font-size: 18px;
   line-height: 30px;
@@ -2075,7 +2080,7 @@ body {
   background: #f8f9f4;
 }
 .scroll-table table th, .scroll-table table td {
-  padding: 10px 7px;
+  padding: 20px 7px;
   text-align: left;
   border-bottom: 1px solid #ebede2;
   position: relative;
@@ -3548,9 +3553,9 @@ ul li {
 }
 }
 .itme-li-mb {
-    display: flex;
     background-color: #fff;
-    padding: 5px 0;
+	 display: flex;
+    justify-content: space-between;
 }
 
 .itme-li-mb div[class='forex-'] {padding: 10px;}
@@ -3560,9 +3565,6 @@ ul li {
     margin: 0;
 }
 
-.forex-right {
-    width: 55%;
-}
 
 .itme-li-mb:nth-child(even) {
     background-color: #f4f6ed;
@@ -3597,4 +3599,54 @@ ul li {
     top: -9px;
     right: -11px;
     color: #fff;
+}
+span.icon-img {
+    width: 50px;
+    display: block;
+}
+
+span.icon-img img {
+    width: 100%;
+}
+
+a.slider-item.clearfix {
+    display: flex !important;
+}
+.forex_button {
+    position: absolute;
+    top: 75%;
+    z-index: 999999;
+    right: 0;
+    max-width: 180px;
+    text-align: center;
+    padding: 5px;
+    left: 0;
+    justify-content: center;
+    margin: 0 auto;
+    background: linear-gradient(0deg, #ce8d0e, #f9d31c);
+    font-weight: 500;
+    color: #000;
+	border-radius:5px;
+}
+.project-about .pad {
+    background-color: white;
+    padding: 15px;
+}
+
+.project-about .pad img {
+    float: left;
+    padding-right: 10px;
+}
+span.txt {
+    padding: 10px;
+}
+.show-top {
+    margin-left: -20px;
+    margin-right: -20px;
+}
+.forex-right {
+    min-width: 90px;
+}
+.forex-left img {
+    width: 100%;
 }
